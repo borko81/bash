@@ -1,20 +1,11 @@
 #!/bin/bash
 
-echo
-echo Please choice one options
-echo
-echo 'clear = Clear screen'
-echo 'memory = Show memory usage'
-echo 'hard = Show hard drive capasity'
-echo
+count=0
+num=10
 
-read choice
-
-case $choice in 
-
-    clear) clear;;
-    memory) free -h;;
-    hard) df -h;;
-    *) echo Invalid chice;;
-
-esac
+while [ $count -le $num ]
+do
+    echo -ne "$num\r\r"
+    sleep 1
+((num--))
+done
