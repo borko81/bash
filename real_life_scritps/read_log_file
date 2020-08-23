@@ -1,0 +1,24 @@
+#!/bin/bash
+clear
+
+<<COMMENTS
+    READ FILE
+    GET CHOICE FOR USER AND SEARCH FOR THAT CHOICE
+COMMENTS
+
+P=$1
+SEARCH=$2
+function search {
+
+    if [ "$P" != "" ] && [ "$SEARCH" != "" ];then
+        if [ -f "$P" ];then
+            result=$(cat -n $P | grep --color=always $SEARCH)
+            echo -e "$n $result\n"
+        else
+            echo "Exit error acquire"
+            exit 1
+        fi
+    fi
+}
+
+search
