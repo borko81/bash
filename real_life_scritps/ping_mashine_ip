@@ -1,0 +1,12 @@
+#!/bin/bash
+# Get ip from file and try to ping them
+
+for file in $(cat 'ip_list.txt');do
+    ping -w 1 $file &>/dev/null
+    if [ $? -eq 0 ];then
+        printf "[+] %s alive\n" $file
+    else
+        printf "[-] %s dead\n" $file
+    fi
+done
+
