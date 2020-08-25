@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Delete file in folder older then given date
+
+FOLDER_TO_DELETE=/home/borko/scripts/shell_examples/archive/
+DAY_TO_CHECK=+60
+
+find $FOLDER_TO_DELETE -type f -mtime $DAY_TO_CHECK -exec ls -ltr {} \; >> file_to_delete.txt
+find $FOLDER_TO_DELETE -type f -mtime $DAY_TO_CHECK -exec rm {} \;
