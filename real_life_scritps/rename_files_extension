@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#RENAME FILE ADD EXTENSION TO THE END OF FILE
+
+O=".csv"
+N=".txt"
+
+FOLDER_NAME=${1:-/home/borko/scripts/shell_examples/testfolder}
+EXTENSION=${2:-$O}
+NEW_EXT=${3:-$N}
+COUNTER=0
+
+for file in `ls $FOLDER_NAME`; do
+    if [ ${file: -4} == $EXTENSION ];then
+        ((COUNTER += 1))
+        mv $FOLDER_NAME/$file $FOLDER_NAME/${file%.$EXTENSION}$NEW_EXT
+    fi
+done
+
+echo Rename $COUNTER files
+
